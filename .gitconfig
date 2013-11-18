@@ -1,0 +1,18 @@
+[user]
+	name = Steve Bidenko
+	email = steve.bidenko@gmail.com
+[color]
+	ui = true
+[core]
+	editor = vim
+[format]
+	pretty = "%h %s"
+[alias]
+	st = status
+	l = log --pretty
+	brd = branch -D
+	pop = pull origin -p
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
