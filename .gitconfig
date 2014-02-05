@@ -12,6 +12,7 @@
 	l = log --pretty
 	brd = branch -D
 	pop = pull origin -p
+	chm = checkout master
 [merge]
 	tool = vimdiff
 [mergetool]
