@@ -1,6 +1,6 @@
 [user]
 	name = Steve Bidenko
-	email = steve.bidenko@gmail.com
+	email = steve.bidenko@qarea.us
 [color]
 	ui = true
 [core]
@@ -13,6 +13,7 @@
 	brd = branch -D
 	pop = pull origin -p
 	chm = checkout master
+	co = checkout
 [merge]
 	tool = vimdiff
 [mergetool]
