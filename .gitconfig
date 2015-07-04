@@ -6,7 +6,7 @@
 [core]
 	editor = vim
 [format]
-	pretty = "%h %s"
+	pretty = "%h %an %s"
 [alias]
 	st = status
 	l = log --pretty

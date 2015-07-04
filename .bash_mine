@@ -32,9 +32,24 @@ export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 export TZ="Europe/Kiev"
-export TERM=xterm
+export EDITOR="vim"
 
+if [ -f ~/.lessfilter ] ; then
+        export LESS='-R'
+        # export LESSOPEN='|~/.lessfilter %s'
+        export ACK_PAGER_COLOR=less
+fi
+
+# export TERM=xterm
+#alias gitst="cd ~/huffpost-web; echo 'Checking...'; git status"
+#alias gitup="cd ~/huffpost-web; echo 'Please, wait...' ; git checkout master; git fetch upstream; conf/config-inst.pl"
+#alias gitreb="cd ~/huffpost-web; echo 'Please, wait...' ; git checkout master; git rebase upstream/master"
+#alias fndhi="history | grep -E \"find.*\\.svn.*logs.*grep.*\\{\\}\" | head -3"
+# alias pushlock="TERM=vt100 ~/v1/deploy_scripts/push_code-lock.expect"
+# alias pushunlock="TERM=vt100 ~/v1/deploy_scripts/push_code-unlock.expect"
 alias mc="mc"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+umask 002
