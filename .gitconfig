@@ -1,20 +1,22 @@
 [user]
-	name = Steve Bidenko
-	email = steve.bidenko@qarea.us
+    name = Steve Bidenko
+    email = steve.bidenko@gmail.com
 [color]
-	ui = true
+    ui = true
 [core]
-	editor = vim
+    editor = vim
 [format]
-	pretty = "%h %s"
+    pretty = "%h %an %s"
 [alias]
-	st = status
-	l = log --pretty
-	brd = branch -D
-	pop = pull origin -p
-	chm = checkout master
-	co = checkout
+    st = status
+    l = log --pretty
+    brd = branch -d
+    pop = pull origin -p
+    fop = fetch origin -p
+    mff = merge --ff-only
+    chm = checkout master
+    co = checkout
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [mergetool]
-	prompt = false
+    prompt = false

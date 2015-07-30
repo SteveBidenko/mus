@@ -7,21 +7,15 @@ function parse_git_branch {
   echo "("${ref#refs/heads/}")"
 }
 
+# User specific environment and startup programs
 RED="\[\033[0;31m\]"
+CYAN="\[\033[0;36m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
+WHITE="\[\033[0;38m\]"
 RESET="\[\033[0;0m\]"
 
-# set -x 
-# User specific environment and startup programs
-COLOR1="\[\033[0;36m\]"
-COLOR2="\[\033[0;33m\]"
-COLOR3="\[\033[0;38m\]"
-#if [ "$UID" = "0" ];
-#then COLOR2="\[\033[0;31m\]" fi
-# export PS1="$COLOR2[$COLOR1\u$COLOR2@$COLOR1\h$COLOR2:$COLOR1\w\$(parse_git_branch)$COLOR2]\$ $COLOR3"
-export PS1="$YELLOW[$COLOR1\u$YELLOW@$COLOR1\h$YELLOW:$COLOR1\w$GREEN\$(parse_git_branch)$YELLOW]\$ $COLOR3"
-# set +x 
+export PS1="$YELLOW[$CYAN\u$YELLOW@$CYAN\h$YELLOW:$CYAN\w$GREEN\$(parse_git_branch)$YELLOW]\$ $WHITE"
 
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
@@ -31,10 +25,17 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-export TZ="Europe/Kiev"
-export TERM=xterm
+if [ -f ~/.lessfilter ] ; then
+	export LESS='-R'
+	# export LESSOPEN='|~/.lessfilter %s'
+	export ACK_PAGER_COLOR=less
+fi
 
 alias mc="mc"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+umask 002
+
+export PATH="/sbin:/usr/sbin:/usr/local/sbin:$HOME/.composer/vendor/bin:$PATH"
