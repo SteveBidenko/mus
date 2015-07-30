@@ -26,9 +26,18 @@ export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 if [ -f ~/.lessfilter ] ; then
-	export LESS='-R'
-	# export LESSOPEN='|~/.lessfilter %s'
-	export ACK_PAGER_COLOR=less
+    export LESS='-R'
+    # export LESSOPEN='|~/.lessfilter %s'
+    export ACK_PAGER_COLOR=less
+fi
+
+export TZ="Europe/Kiev"
+export EDITOR="vim"
+
+if [ -f ~/.lessfilter ] ; then
+        export LESS='-R'
+        # export LESSOPEN='|~/.lessfilter %s'
+        export ACK_PAGER_COLOR=less
 fi
 
 alias mc="mc"
