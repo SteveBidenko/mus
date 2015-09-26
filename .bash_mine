@@ -15,6 +15,8 @@ GREEN="\[\033[0;32m\]"
 WHITE="\[\033[0;38m\]"
 RESET="\[\033[0;0m\]"
 
+#if [ "$UID" = "0" ];
+#then YELLOW="\[\033[0;31m\]" fi
 export PS1="$YELLOW[$CYAN\u$YELLOW@$CYAN\h$YELLOW:$CYAN\w$GREEN\$(parse_git_branch)$YELLOW]\$ $WHITE"
 
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
@@ -44,6 +46,7 @@ alias mc="mc"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias viewlogs='cd /var/log; sudo tail -f `sudo find . -name "*log"`'
 
 umask 002
 
