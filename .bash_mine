@@ -47,6 +47,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias viewlogs='cd /var/log; sudo tail -f `sudo find . -name "*log"`'
+alias prettyjson='python -m json.tool'
 
 umask 002
 
