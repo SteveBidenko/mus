@@ -1,10 +1,11 @@
 [user]
-    name = Steve Bidenko
+    name = Stanislav Bidenko
     email = steve.bidenko@gmail.com
 [color]
     ui = true
 [core]
     editor = vim
+    whitespace = cr-at-eol
 [format]
     pretty = "%h %an %s"
 [alias]
@@ -16,7 +17,10 @@
     mff = merge --ff-only
     chm = checkout master
     co = checkout
+    cached = diff --cached
 [merge]
     tool = vimdiff
 [mergetool]
     prompt = false
+[push]
+    default = simple
