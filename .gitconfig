@@ -1,23 +1,29 @@
 [user]
-    name = Stanislav Bidenko
+    name = Stas Bidenko
     email = steve.bidenko@gmail.com
 [color]
     ui = true
 [core]
     editor = vim
     whitespace = cr-at-eol
+    pager = less -x1,5
 [format]
     pretty = "%h %an %s"
 [alias]
     st = status
     l = log --pretty
     brd = branch -d
-    pop = pull origin -p
+    pop = !git fetch --prune --prune-tags && git pull origin
     fop = fetch origin -p
+    mod = merge origin/dev
     mff = merge --ff-only
     chm = checkout master
     co = checkout
     cached = diff --cached
+    spull = submodule update --init --recursive
+    bupd = !git add src/app/common && git commit -m \"BIOB Updated submodule settings\"
+    qupd = !git add src/app/common && git commit -m \"QI Updated submodule settings\"
+    tupd = !git add package.json && git commit -m \"TR Updated project version in package.json\"
 [merge]
     tool = vimdiff
 [mergetool]
