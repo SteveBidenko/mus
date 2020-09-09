@@ -1,6 +1,7 @@
 [user]
     name = Stas Bidenko
     email = steve.bidenko@gmail.com
+    signingkey = A20B666348CA90F53119CA6D86F4945FF633B1BD
 [color]
     ui = true
 [core]
@@ -30,3 +31,9 @@
     prompt = false
 [push]
     default = simple
+[pull]
+    ff = only
+[commit]
+    gpgsign = true
+[gpg]
+    program = gpg
