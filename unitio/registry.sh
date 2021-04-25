@@ -1,41 +1,22 @@
 #!/usr/bin/env bash
 
 if [[ "$1" != "status" ]]; then
-  ./conductor.sh
-  ./alliance.sh $1
-  RETCODE=$?
-  if [[ $RETCODE -ne 0 ]]; then
-	  exit $RETCODE
-  fi
-
-  ./crowbar.sh $1
-  RETCODE=$?
-  if [[ $RETCODE -ne 0 ]]; then
-	  exit $RETCODE
-  fi
-
-  cd tr
-  ./be.sh $1
-  RETCODE=$?
-  if [[ $RETCODE -ne 0 ]]; then
-	  exit $RETCODE
-  fi
-
-  cd web
-  if [[ "$1" == "master" ]] || [[ "$1" == "dev" ]]; then
-	  git checkout $1
-	  rm -rf node_modules
-	  npm install
-	  npm run build-datepicker
-  elif [[ ! -d dist/registry-datepicker ]]; then
-	  npm run build-datepicker
-  fi
-  cd ../..
-  echo "You can run 'cd tr/web; npm run watch-lib'"
+    ./conductor.sh
+    ./alliance.sh "$1"
+    ./crowbar.sh "$1"
+    cd tr && ./be.sh "$1"
+    cd web || exit
+    if [[ ! -d dist/registry-datepicker ]]; then
+        npm run build-datepicker
+    fi
+    cd ../..
+    echo "It's ready to run 'cd tr/web && npm run watch-lib'"
 fi
-echo ---
-echo "Alliance: $(cd alliance; git st | head -1)"
-echo "Crowbar: $(cd crowbar; git st | head -1)"
-echo "BE: $(cd tr/be; git st | head -1)"
-echo "FE: $(cd tr/web; git st | head -1)"
-echo ---
+
+echo "---"
+echo "Conductor is on $(cd conductor || exit; git branch --show-current)"
+echo "Alliance is on $(cd alliance || exit; git branch --show-current)"
+echo "Crowbar is on $(cd crowbar || exit; git branch --show-current)"
+echo "BE is on $(cd tr/be || exit; git branch --show-current)"
+echo "FE is on $(cd tr/web || exit; git branch --show-current)"
+echo "---"

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-cd conductor; git pop
-make docker-daemon
+# docker network create t1d
+cd conductor || exit; git pop
+make docker-compose-up-daemon
