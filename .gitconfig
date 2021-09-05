@@ -1,5 +1,5 @@
 [user]
-    name = Stas Bidenko
+    name = Stanislav Bidenko
     email = steve.bidenko@gmail.com
     signingkey = A20B666348CA90F53119CA6D86F4945FF633B1BD
 [color]
@@ -15,6 +15,7 @@
     l = log --pretty
     brd = branch -d
     pop = !git fetch --prune --prune-tags && git pull origin
+    popd = !git pop && cd src/app/common && git co dev && git pull origin -p && cd ../../..
     fop = fetch origin -p
     mod = merge origin/dev
     mff = merge --ff-only
@@ -22,8 +23,6 @@
     co = checkout
     cached = diff --cached
     spull = submodule update --init --recursive
-    bupd = !git add src/app/common && git commit -m \"BIOB Updated submodule settings\"
-    qupd = !git add src/app/common && git commit -m \"QI Updated submodule settings\"
     tupd = !git add package.json && git commit -m \"TR Updated project version in package.json\"
 [merge]
     tool = vimdiff
@@ -37,3 +36,5 @@
     gpgsign = true
 [gpg]
     program = gpg
+[init]
+    defaultBranch = prod
